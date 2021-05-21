@@ -50,6 +50,20 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project  
 
+## Reason for choosing NoSQL Database for blogging website
+<p> Basically use SQL or noSQL approach depends on such factors as how your data model (I mean  tables in SQL or lists in no SQL) changes and what will you do with it when you have lots of data.
+
+If you data model pretty much known and changes not often, plus you have really difficult logic to work with it (and validate ofcourse) than I usually use SQL approach, because it's easier to keep your data consistency.
+
+The next problem that you faces is huge amount of data. With SQL approach you have to build DWH (data warehouse) if you want to query your data fast. With noSQL approach in theory you can easily spread your data of different servers.
+
+About blog - you definatly don't know right now what kind of model you will have in the end. And you wouldn't create tricky reports i gess. So it's ok to use noSQL model.
+  As far we know that
+  #There is no need for a detailed pre-planning of the data structure when implementing a NoSQL database. On the other hand, with a SQL database you need to plan out the data you will store and how that will fit into tables.
+  ## One of the Most Important Thing
+  # NoSQL databases can be document based, key-value pairs, graph databases but SQL databases are table based databases
+  Thats why I prefer to choose NoSQL database.
+  </p>
 
 
 
@@ -107,3 +121,5 @@ Project Link: [https://github.com/codeme13/BlogAPI](https://github.com/codeme13/
 [license-url]: https://github.com/codeme13/BlogAPI/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/codeme13
+
+
