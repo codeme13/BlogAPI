@@ -64,7 +64,7 @@ router.put("/home/blog/:id", async (req, res) => {
     const id = req.params.id;
     const data = await Blog.findByIdAndUpdate({ _id: id }, req.body, {
       new: true,
-      useFindAndModify: true,
+      useFindAndModify: false,
     });
     await data.save();
     res.send(data);
