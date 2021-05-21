@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "5cf852aa-5767-4faf-b8d4-d75d99c135e5",
+		"name": "Blog API-- Level-1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add a new Blog/POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"writer\": \"aadc\",\r\n        \"title\": \"Covaa\",\r\n        \"blog\": \"COVID-19 aams: 1-feverdry 2-cough tirednessLess common symptoms:aches and painssore throatdiarrhoeaconjunctivitisheadacheloss of taste or smell a rash on skin, or discolouration of fingers or toes\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://Blogging.codeme13.repl.co/home/add"
+			},
+			"response": []
+		},
+		{
+			"name": "Lists all Blogs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://Blogging.codeme13.repl.co/home"
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Blog by its Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://Blogging.codeme13.repl.co/home/blog/60a7d749a8da9703713cd075"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Blog by its Id/DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "https://Blogging.codeme13.repl.co/home/blog/60a7d7a6a8da9703713cd077"
+			},
+			"response": []
+		},
+		{
+			"name": "Update a blog /PUT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"blog\": \"Dance is the purest form of Aradhya archna of GOD ,Through dance you will able to reach closer to GOD . lets achieve it together\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://Blogging.codeme13.repl.co/home/blog/60a78eb5b10f2a7658975ff6"
+			},
+			"response": []
+		}
+	]
+}
