@@ -1,39 +1,38 @@
 const express = require("express");
 const router = express.Router();
-const blog = require("../models/blog");
-const comments = require("../models/comments");
+const Blog = require("../models/blog");
+const Comments = require("../models/comments");
 
-//To get all the Blogs
+
 
 router.get("/home", async (req, res) => {
   try {
-    const ans = await blog.find({});
+    const ans = await Blog.find({});
     res.status(201).send(ans);
   } catch (err) {
     res.status(400).send(err);
   }
 });
 
-//To add a new Blog to website
+
 
 router.post("/home/add", async (req, res) => {
   try {
-    const data = new blog(req.body);
+    const data = new Blog(req.body);
 
-    const dum = await data.save();
+    await data.save();
     res.send(data);
   } catch (err) {
     res.status(400).send(err);
   }
 });
 
-//To get a Blog by its Id
+
 
 router.get("/home/blog/:id", async (req, res) => {
   try {
     const _id = req.params.id;
-
-    const data = await blog.findById({ _id: _id }, select("-comments"));
+    const data = await Blog.findById({ _id: _id }, select({ comments: 0 }));
     res.status(201).send(data);
   } catch (err) {
     res.status(400).send({
@@ -43,88 +42,84 @@ router.get("/home/blog/:id", async (req, res) => {
   }
 });
 
-//To delete  a Blog by its Id
+
 
 router.delete("/home/blog/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const DeLEte = await blog.findByIdAndDelete({ _id: id });
+    await Blog.findByIdAndDelete({ _id: id });
     res.redirect("/home");
   } catch (err) {
     res.status(400).send({
       error: true,
-      message: err.message,
+      message: "Unable to delete Blog",
     });
   }
 });
 
-//To update a Blog by its Id
+
 
 router.put("/home/blog/:id", async (req, res) => {
   try {
     const id = req.params.id;
-
-    const data = await blog.findByIdAndUpdate({ _id: id }, req.body, {
+    const data = await Blog.findByIdAndUpdate({ _id: id }, req.body, {
       new: true,
       useFindAndModify: true,
     });
-    const m = await data.save();
+    await data.save();
     res.send(data);
   } catch (err) {
     res.status(400).send({
       error: true,
-      message: err.message,
+      message: "Unable to update your Blog",
     });
   }
 });
 
-/*--------Comment Section ------*/
-
 router.post("/home/:id/comment", async (req, res) => {
-  // find out which post you are commenting
   try {
     const id = req.params.id;
-    // get the comment text and record post id
-    const comment = new comments({
+
+    const comment = new Comments({
       text: req.body.comment,
       post: id,
     });
 
-    // save comment
     await comment.save();
 
-    const thisblog = await blog.findById(id);
+    const blog = await Blog.findById(id);
 
-    thisblog.comments.push(comment);
+    blog.comments.push(comment);
 
-    const m = await thisblog.save();
+    await blog.save();
 
-    res.redirect("/home");
+    res.send({
+      error: false,
+      message: "Commented Sucessfully",
+    });
   } catch (err) {
     res.status(400).send({
       error: true,
-      message: err.message,
+      message: "Unable to Comment",
     });
   }
 });
 
 router.get("/home/:id/comment", async (req, res) => {
-  const _id = req.params.id;
-  const Blogfind = await blog.find({ _id });
-  var commenter = await comments
-    .find({ post: _id })
-    .select({ _id: 0, __v: 0, post: 0 });
   try {
-    // commenter.forEach( element=>
-    //   {
-
-    //   res.write(element.text+"\n");
-
-    // });
-    res.send(commenter);
-    // res.status(200).send();
+    const _id = req.params.id;
+    const blog = await Blog.find({ _id });
+    var comment = await Comments.find({ post: _id }).select({
+      _id: 0,
+      __v: 0,
+      post: 0,
+    });
+    res.send(comment);
   } catch (err) {
-    res.status(400).send(err.message);
+    res.status(400).send({
+      error: true,
+      message: "Unable to get comments",
+    });
   }
 });
 

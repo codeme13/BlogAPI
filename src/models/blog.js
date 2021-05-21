@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const validator = require("validator");
 
-const fullblog = new mongoose.Schema({
+const blogSchema = new mongoose.Schema({
   writer: {
     type: String,
     required: true,
@@ -31,6 +31,6 @@ const fullblog = new mongoose.Schema({
   ],
 });
 
-const blogdata = new mongoose.model("blogdata", fullblog);
+const blog = new mongoose.model("blog", blogSchema);
 
-module.exports = blogdata;
+module.exports = blog;
