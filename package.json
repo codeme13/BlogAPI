@@ -12,9 +12,8 @@
   "dependencies": {
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
-    "express-generator": "^4.16.1",
     "joi": "^17.4.0",
-    "mongoose": "^5.12.9",
+    "mongoose": "^5.12.10",
     "validator": "^13.6.0"
   }
 }
