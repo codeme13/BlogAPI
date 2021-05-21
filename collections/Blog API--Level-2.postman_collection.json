@@ -1,0 +1,36 @@
+{
+	"info": {
+		"_postman_id": "a686072d-858f-410c-8fa0-7bd606bab3bf",
+		"name": "Blog API--Level-2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add a comment /POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comment\":\" great job\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://Blogging.codeme13.repl.co/home/60a78e9eb10f2a7658975ff5/comment"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Comments on Blog",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://Blogging.codeme13.repl.co/home/60a78e9eb10f2a7658975ff5/comment"
+			},
+			"response": []
+		}
+	]
+}
