@@ -72,9 +72,9 @@ About blog - you definatly don't know right now what kind of model you will have
 
 ### Built With
 
-* [Node JS]()
-* [MongoDB]()
-* [ExpressJS]()
+* [Node JS](https://nodejs.org/en/docs/)
+* [MongoDB](https://docs.mongodb.com/)
+* [ExpressJS](https://devdocs.io/express/)
 
 
 
