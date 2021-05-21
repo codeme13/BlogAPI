@@ -32,7 +32,7 @@ router.post("/home/add", async (req, res) => {
 router.get("/home/blog/:id", async (req, res) => {
   try {
     const _id = req.params.id;
-    const data = await Blog.findById({ _id: _id }, select({ comments: 0 }));
+    const data = await Blog.findById({ _id: _id });
     res.status(201).send(data);
   } catch (err) {
     res.status(400).send({
