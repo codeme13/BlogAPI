@@ -1,12 +1,15 @@
-const mongoose=require('mongoose');
-mongoose.connect("mongodb://localhost:27017/blogging",{
-    useCreateIndex:true,
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
-    useFindAndModify:false
-}).then(()=>{
-    console.log("Connection Sucessfull buddy");
-}).catch((err)=>
-{
-    console.log("No connection");
-});
+const mongoose = require("mongoose");
+(async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
+      useCreateIndex: true,
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    });
+    console.log("Connected To Database...");
+  } catch (err) {
+    console.error("Unable To Connect\nReason:" + err.message);
+    process.exit(1);
+  }
+})();

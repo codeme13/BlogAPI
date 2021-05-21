@@ -1,0 +1,12 @@
+# POST http://localhost:3000/home/add
+# Content-Type: application/json
+
+# {
+#     "writer":"Archit Kumar",
+#     "title":"Dance education",
+#     "blog":"cnskdjgsvjdsovodsvd sbvsbkvjds bvkdjbvd vmnkjbkvbdkvbdsjlv snvkjdbvkdfbkjfdbvjfdbv"
+# }
+
+GET  http://localhost:3000/home/60a78eb5b10f2a7658975ff6/comment
+
+
